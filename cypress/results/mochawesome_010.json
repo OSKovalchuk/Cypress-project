@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-23T17:33:39.108Z",
+    "end": "2025-12-23T17:33:44.087Z",
+    "duration": 4979,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4e8ab469-7013-42e2-95fb-85286737fe00",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Lesson19.cy.js",
+      "file": "cypress\\e2e\\Lesson19.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cbc6d8c1-f8e7-400b-9740-e91b19d68dee",
+          "title": "Перевірка елементів інтерфейсу на головній сторінці",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Тест 1: Перевірка хедера та центральної кнопки",
+              "fullTitle": "Перевірка елементів інтерфейсу на головній сторінці Тест 1: Перевірка хедера та центральної кнопки",
+              "timedOut": null,
+              "duration": 3767,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('header').should('be.visible').within(() => {\n  cy.get('.header_logo').should('be.visible');\n  cy.get('button').contains('Guest log in').should('be.visible');\n});\ncy.get('button').contains('Sign up').should('be.visible');",
+              "err": {},
+              "uuid": "c4290aa1-aea7-46ff-97e5-3c3f1b2529a3",
+              "parentUUID": "cbc6d8c1-f8e7-400b-9740-e91b19d68dee",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Тест 2: Перевірка футера (соцмережі та контакти)",
+              "fullTitle": "Перевірка елементів інтерфейсу на головній сторінці Тест 2: Перевірка футера (соцмережі та контакти)",
+              "timedOut": null,
+              "duration": 985,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Скролимо до футера\ncy.scrollTo('bottom');\n// 2. Перевірка 5-ти соціальних мереж\ncy.get('a.socials_link', {\n  timeout: 10000\n}).should('have.length', 5).each($el => {\n  cy.wrap($el).should('be.visible');\n});\n// 3. ПЕРЕВІРКА КОНТАКТІВ \ncy.get('a.contacts_link').contains('ithillel.ua').should('be.visible');\ncy.contains('a.contacts_link', /support/i).should('be.visible');\n// 4. Перевірка лого та копірайту\ncy.get('.footer_logo').should('be.visible');\ncy.get('footer').should('contain', '© 2021 Hillel IT school');",
+              "err": {},
+              "uuid": "c0527d83-7de4-411f-a03d-a3b389e9dfe8",
+              "parentUUID": "cbc6d8c1-f8e7-400b-9740-e91b19d68dee",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c4290aa1-aea7-46ff-97e5-3c3f1b2529a3",
+            "c0527d83-7de4-411f-a03d-a3b389e9dfe8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4752,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
