@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-12-23T14:17:52.407Z",
+    "end": "2025-12-23T14:18:01.420Z",
+    "duration": 9013,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0af30d9a-2f47-4b7f-b93a-c0e87d9c8b3e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\lesson20.cy.js",
+      "file": "cypress\\e2e\\lesson20.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3825aa7e-77e2-4da9-b8a6-2e9380b7af59",
+          "title": "Функціонал реєстрації та логіну",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Успішна реєстрація нового користувача",
+              "fullTitle": "Функціонал реєстрації та логіну Успішна реєстрація нового користувача",
+              "timedOut": null,
+              "duration": 5283,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button').contains('Sign up').click();\n// Заповнення форми реєстрації\ncy.get('#signupName').type('Ivan');\ncy.get('#signupLastName').type('Testov');\ncy.get('#signupEmail').type(userEmail);\n// Використовуємо нашу кастомну опцію { sensitive: true }\ncy.get('#signupPassword').type(userPassword, {\n  sensitive: true\n});\ncy.get('#signupRepeatPassword').type(userPassword, {\n  sensitive: true\n});\ncy.get('.modal-footer .btn-primary').click();\n// Перевірка, що реєстрація пройшла і ми в кабінеті\ncy.url().should('include', '/panel/garage');\ncy.get('h1').should('contain', 'Garage');",
+              "err": {},
+              "uuid": "cf4a9f4b-f300-4e2c-83e1-a3e6f732f016",
+              "parentUUID": "3825aa7e-77e2-4da9-b8a6-2e9380b7af59",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Логін створеним користувачем через кастомну команду login()",
+              "fullTitle": "Функціонал реєстрації та логіну Логін створеним користувачем через кастомну команду login()",
+              "timedOut": null,
+              "duration": 1903,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Викликаємо команду, яку ми щойно додали в commands.js\ncy.login(userEmail, userPassword);\n// Перевірка успішного входу\ncy.url().should('include', '/panel/garage');\ncy.contains('button', 'My profile').should('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://qauto2.forstudy.space/\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://qauto2.forstudy.space/\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n    at <unknown> (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:134626:76)\n    at visitFailedByErr (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:134216:12)\n    at <unknown> (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:134609:13)\n    at tryCatcher (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypress-project/./cypress/support/commands.js:33:5)\n    at wrapped (https://qauto.forstudy.space/__cypress/runner/cypress_runner.js:145810:43)",
+                "diff": null
+              },
+              "uuid": "d026d8c9-1766-45a1-9c34-112fe29b9ee8",
+              "parentUUID": "3825aa7e-77e2-4da9-b8a6-2e9380b7af59",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cf4a9f4b-f300-4e2c-83e1-a3e6f732f016"
+          ],
+          "failures": [
+            "d026d8c9-1766-45a1-9c34-112fe29b9ee8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7186,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
