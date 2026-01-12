@@ -15,41 +15,41 @@
 // ***********************************************
 // 1. Перевизначення команди 'type' для маскування паролів у логах
 // ***********************************************
-Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
-  if (options && options.sensitive) {
+//Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
+ // if (options && options.sensitive) {
     // Вимикаємо стандартний лог
-    options.log = false;
+    //options.log = false;
     
     // Створюємо власний лог, де замість тексту будуть зірочки
-    Cypress.log({
-      $el: element,
-      name: 'type',
-      message: '*'.repeat(text.length),
-    });
-  }
+    //Cypress.log({
+    //  $el: element,
+    //  name: 'type',
+     // message: '*'.repeat(text.length),
+    //});
+  //}
 
-  return originalFn(element, text, options);
-});
+  //return originalFn(element, text, options);
+//});
 
 // ***********************************************
 // 2. Кастомна команда 'login' для входу через UI
 // ***********************************************
-Cypress.Commands.add('login', (email, password) => {
+//Cypress.Commands.add('login', (email, password) => {
   // Перехід на головну сторінку (baseUrl підтягнеться з конфігу)
-  cy.visit('/');
+ // cy.visit('/');
   
   // Натискаємо кнопку Sign In у хедері
-  cy.get('button').contains('Sign In').click();
+  //cy.get('button').contains('Sign In').click();
   
   // Заповнюємо Email
-  cy.get('#signinEmail').type(email);
+  //cy.get('#signinEmail').type(email);
   
   // Заповнюємо пароль із маскуванням
-  cy.get('#signinPassword').type(password, { sensitive: true });
+ // cy.get('#signinPassword').type(password, { sensitive: true });
   
   // Натискаємо кнопку Login у модальному вікні
-  cy.get('.modal-footer .btn-primary').contains('Login').click();
-}); 
+ // cy.get('.modal-footer .btn-primary').contains('Login').click();
+//}); 
 
 // Натискаємо Guest log in (або іншу кнопку для входу)
   
@@ -70,3 +70,16 @@ Cypress.Commands.add('login', (email, password) => {
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('createExpenseApi', (carId, amount, mileage, date) => {
+  return cy.request({
+      method: 'POST',
+      url: '/api/expenses', // Тільки шлях, без guest:password@...
+      body: {
+          carId: Number(carId),
+          reportedAt: date,
+          mileage: Number(mileage),
+          liters: 10,
+          totalCost: Number(amount)
+      }
+  });
+});
