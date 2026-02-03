@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "description": "Cypress project",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": 
+
+    {
+  "test:qauto": "cypress run --config-file cypress.config.qauto.js",
+  "test:qauto2": "cypress run --config-file cypress.config.qauto2.js"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^15.7.1"
+    "cypress": "12.17.4",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.0",
+    "mochawesome-report-generator": "^6.3.2"
   }
 }

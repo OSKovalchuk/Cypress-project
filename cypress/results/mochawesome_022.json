@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-12-29T19:26:56.903Z",
+    "end": "2025-12-29T19:27:08.405Z",
+    "duration": 11502,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d9450f87-4150-433f-bb5a-743cdb05b3ad",
+      "title": "",
+      "fullFile": "cypress\\e2e\\lesson21.cy.js",
+      "file": "cypress\\e2e\\lesson21.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cd604cd6-565b-47f0-98b1-3c0aca8e01db",
+          "title": "Garage and Expenses Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should add a car and fuel expenses",
+              "fullTitle": "Garage and Expenses Tests Should add a car and fuel expenses",
+              "timedOut": null,
+              "duration": 11413,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_GaragePage.default.addCar('BMW', 'X5', '100'); // Використовуємо POM\n_GaragePage.default.addExpense('150', '10', '500'); // Використовуємо POM\ncy.contains('Expense added').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.btn-add-expense`, but never found it. Queried from:\n\n              > cy.get(.car-item).first()",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.btn-add-expense`, but never found it. Queried from:\n\n              > cy.get(.car-item).first()\n    at GaragePage.addExpense (webpack://cypress-project/./cypress/pageObjects/GaragePage.js:21:36)\n    at Context.eval (webpack://cypress-project/./cypress/e2e/lesson21.cy.js:11:15)",
+                "diff": null
+              },
+              "uuid": "c1d251b2-a6e7-45b4-85e0-7ab6cea52da8",
+              "parentUUID": "cd604cd6-565b-47f0-98b1-3c0aca8e01db",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c1d251b2-a6e7-45b4-85e0-7ab6cea52da8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 11413,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
